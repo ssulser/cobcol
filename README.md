@@ -14,8 +14,8 @@ If you want type records for:
 
 you type:
 	cobcol	'X(10);N(4);N(4)' or
-		      'X(10)N(4)N(4)' or
-		      'X(10) N(4) N(4)'
+                'X(10)N(4)N(4)'   or
+		'X(10) N(4) N(4)'
 
 output:
 	XXXXXXXXXX99997777

@@ -1,5 +1,5 @@
 # cobcol
-'''
+```
 A tool to generate helper columns for COBOL records.
 (c) 2024 by ssulser
 
@@ -24,4 +24,4 @@ This helps in typing the records accordingly in an editor:
 	XXXXXXXXXX99997777
 	SIMON SULS12350850
 	TESTER TES45671250
-'''
+```

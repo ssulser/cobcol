@@ -1,23 +1,29 @@
 /*
     cobcol.c
     A tool to generate helper columns for COBOL records.
-    If you want type records for:
+    (c) 2024 by ssulser
+
+    commandline:	enclose in '
+            X(n) - alphanumeric
+            N(n) - numeric
+
+    If you want record helper columns for this:
         01 NAME    PIC X(10).
         01 ID      PIC 9(4).
         01 PRICE   PIC 99V99.
 
-    you type:
-        cobcol "X(10);N(4);N(4)"
+    the commandline looks like this:
+        cobcol	'X(10);N(4);N(4)' or
+                'X(10)N(4)N(4)'   or
+                'X(10) N(4) N(4)'
 
-    output:
+    this produces this output:
         XXXXXXXXXX99997777
 
-    This helps in typing the records accordingly:
+    which can then be used in an editor to enter some data:
         XXXXXXXXXX99997777
         SIMON SULS12350850
-        TESTER TES45671250
-
-    (c) 2024 by ssulser        
+        TESTER TES45671250      
 */
 
 #include <stdio.h>
@@ -26,7 +32,7 @@
 #include <string.h>
 
 // MAX_NUMBER = maximum digits + '\0'
-#define MAX_NUMBER 4
+#define MAX_NUMBER 3
 
 // parse command string
 int parse(const char *commands) {
@@ -54,7 +60,7 @@ int parse(const char *commands) {
                 int index = 0;
 
                 // extract the number inside the parenthesis
-                while (isdigit(*ptr) && index < MAX_NUMBER) {
+                while (isdigit(*ptr) && index < MAX_NUMBER-1) {
                     number_string[index++] = *ptr++;
                 }
                 number_string[index] = '\0';

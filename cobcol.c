@@ -110,23 +110,23 @@ int main(int argc, char const *argv[])
 {
     if (argc == 1 || parse(argv[1])) {
         fprintf(stderr,
-            "USAGE: %s commandline\n"                                \
+            "\nUSAGE: %s commandline\n"                              \
             "A tool to generate helper columns for COBOL records.\n" \
             "(c) 2024 by ssulser\n\n"                                \
             "commandline:\tenclose in '\n"                           \
             "\t\tX(n) - alphanumeric\n"                              \
             "\t\tN(n) - numeric\n"                                   \
-            "\nIf you want type records for:\n"                      \
+            "\nIf you want record helper columns for this:\n"        \
             "\t01 NAME    PIC X(10).\n"                              \
             "\t01 ID      PIC 9(4).\n"                               \
             "\t01 PRICE   PIC 99V99.\n\n"                            \
-            "you type:\n"                                            \
+            "the commandline looks like this:\n"                     \
             "\tcobcol\t'X(10);N(4);N(4)' or\n"                       \
-            "\t\t'X(10)N(4)N(4)' or\n"                               \
+            "\t\t'X(10)N(4)N(4)'   or\n"                             \
             "\t\t'X(10) N(4) N(4)'\n\n"                              \
-            "output:\n"                                              \
+            "this produces this output:\n"                           \
             "\tXXXXXXXXXX99997777\n\n"                               \
-            "This helps in typing the records accordingly:\n"        \
+            "which can then be used in an editor to enter some data:\n" \
             "\tXXXXXXXXXX99997777\n"                                 \
             "\tSIMON SULS12350850\n"                                 \
             "\tTESTER TES45671250\n\n"

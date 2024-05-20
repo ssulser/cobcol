@@ -114,7 +114,7 @@ int parse(const char *commands) {
 
 int main(int argc, char const *argv[])
 {
-    if (argc == 1 || parse(argv[1])) {
+    if (argc == 1 || strncmp(argv[1], "-h",2) == 0) {
         fprintf(stderr,
             "\nUSAGE: %s commandline\n"                              \
             "A tool to generate helper columns for COBOL records.\n" \
@@ -137,6 +137,7 @@ int main(int argc, char const *argv[])
             "\tSIMON SULS12350850\n"                                 \
             "\tTESTER TES45671250\n\n"
         , argv[0]);
+        return 1;
     }
-    return 0;
+    return parse(argv[1]);
 }
